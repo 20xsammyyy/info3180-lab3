@@ -5,6 +5,6 @@ from .config import Config
 app = Flask(__name__)
 app.config.from_object(Config)
 
-mail= Mail(app)
-from app import views
-mail.init_app(app)
+mail = Mail(app)  # Initialize mail
+
+from app import views  # Import views after initializing app and mail

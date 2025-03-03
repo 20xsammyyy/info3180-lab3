@@ -1,4 +1,4 @@
-from app import app
+from app import app, mail
 from flask import render_template, request, redirect, url_for, flash
 from flask_mail import Message
 from .forms import ContactForm
@@ -37,7 +37,7 @@ def contact():
             mail.send(msg)
 
             flash('Your e-mail has been sent successfully')
-            return redirect(url_for(home))
+            return redirect(url_for('home'))
             
         flash_errors(myform)
     return render_template('contact.html', form=myform)
